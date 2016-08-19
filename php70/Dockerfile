@@ -11,6 +11,7 @@ RUN apt-get install -y \
         wget \ 
         php7.0-cli \ 
         php-xdebug \
+        php-xml \
         php7.0-curl && \
     rm -rf /var/lib/apt/lists/*
 
