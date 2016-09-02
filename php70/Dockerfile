@@ -3,27 +3,23 @@ FROM ubuntu:xenial
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-	apt-get upgrade -y 
-
-RUN apt-get install -y \
+	apt-get upgrade -y && \
+	apt-get install -y \
         git \
+        curl \
         unzip \
-        wget \ 
+        build-essential \
+        wget \  
         php7.0-cli \ 
         php-xdebug \
         php-xml \
         php7.0-curl && \
-    rm -rf /var/lib/apt/lists/*
-
-#RUN sed -i \
-#        -e "s/^;date.timezone.*/date.timezone = Europe/Budapest" \
-#        -e "s/^memory_limit.*/memory_limit = -1/" \
-#        /etc/php/php.ini && \
-
-RUN wget http://getcomposer.org/composer.phar && \
-	mv composer.phar /usr/local/bin/composer && \
+    rm -rf /var/lib/apt/lists/* && \
+    curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
 	chmod +x /usr/local/bin/composer && \
-	useradd user && \
+	curl http://get.sensiolabs.org/melody.phar -o /usr/local/bin/melody && \
+	chmod a+x /usr/local/bin/melody && \
+    useradd user && \
 	mkdir -p /home/user/.bin && \
 	chown -R user: /home/user
 

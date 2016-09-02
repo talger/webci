@@ -1,10 +1,10 @@
-FROM debian:jessie
+FROM debian:squeeze
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get update && \
-	apt-get upgrade -y && \
-	apt-get install -y \
+    apt-get upgrade -y && \
+    apt-get install -y \
         git \
         curl \
         unzip \
@@ -16,12 +16,12 @@ RUN apt-get update && \
         php5-curl && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
-	chmod +x /usr/local/bin/composer && \
-	curl http://get.sensiolabs.org/melody.phar -o /usr/local/bin/melody && \
-	chmod a+x /usr/local/bin/melody && \
+    chmod +x /usr/local/bin/composer && \
+    curl http://get.sensiolabs.org/melody.phar -o /usr/local/bin/melody && \
+    chmod a+x /usr/local/bin/melody && \
     useradd user && \
-	mkdir -p /home/user/.bin && \
-	chown -R user: /home/user
+    mkdir -p /home/user/.bin && \
+    chown -R user: /home/user
 
 USER user
 WORKDIR /home/user
