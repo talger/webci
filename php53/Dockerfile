@@ -2,7 +2,8 @@ FROM debian:squeeze
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && \
+RUN apt-get clean && \ 
+    apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y \
         git \
