@@ -18,6 +18,8 @@ RUN apt-get clean && \
         php5-xdebug \
         php5-memcached \
         php5-curl && \
+    apt-get remove -y php5-suhosin && \
+    rm /etc/php5/conf.d/suhosin.ini && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
     chmod +x /usr/local/bin/composer && \
