@@ -13,6 +13,7 @@ RUN apt-get update && \
         php5-cli \ 
         php5-xdebug \
         php5-memcached \
+	php5-ldap \
         php5-curl && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
