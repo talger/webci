@@ -13,6 +13,7 @@ RUN apt-get update && \
         php7.0-cli \ 
         php-xdebug \
         php-xml \
+        php7.0-mbstring \
         php7.0-curl && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
