@@ -8,13 +8,15 @@ RUN apt-get update && \
         git \
         curl \
         unzip \
-        build-essential \
         wget \  
+        language-pack-hu \
         php7.0-cli \ 
         php-xdebug \
         php-xml \
         php7.0-mbstring \
         php7.0-curl && \
+    apt-get autoclean -y && \
+    apt-get autoremove -y && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
 	chmod +x /usr/local/bin/composer && \

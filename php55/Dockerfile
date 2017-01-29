@@ -2,18 +2,22 @@ FROM ubuntu:trusty
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN apt-get update && \
-	apt-get upgrade -y && \
+RUN apt-get upgrade -y && \
+	apt-get update && \
 	apt-get install -y \
         git \
         curl \
         unzip \
-        build-essential \
-        wget \ 
+        wget \
+        language-pack-hu \
         php5-cli \ 
         php5-xdebug \
         php5-memcached \
+		php5-ldap \
+		php5-gd \
         php5-curl && \
+    apt-get autoremove -y && \
+    apt-get autoclean -y && \
     rm -rf /var/lib/apt/lists/* && \
     curl http://getcomposer.org/composer.phar -o /usr/local/bin/composer && \
 	chmod +x /usr/local/bin/composer && \
