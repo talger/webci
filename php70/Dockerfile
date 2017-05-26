@@ -2,10 +2,7 @@ FROM ubuntu:xenial
 
 ENV DEBIAN_FRONTEND noninteractive
 
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
-	apt-get update && \
+RUN apt-get update && \
 	apt-get upgrade -y && \
 	apt-get install -y \
         git \
@@ -13,7 +10,12 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
         curl \
         unzip \
         wget \  
-        language-pack-hu \
+        language-pack-hu && \
+    curl -sL https://deb.nodesource.com/setup_6.x | bash - && \
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
+    pt-get update && \
+	apt-get install -y \
         php7.0-cli \ 
         php-xdebug \
         php-xml \
