@@ -6,7 +6,6 @@ RUN apt-get update && \
 	apt-get upgrade -y && \
 	apt-get install -y \
         git \
-	nodejs \
         curl \
         unzip \
         wget \  
@@ -16,6 +15,8 @@ RUN apt-get update && \
     echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list && \
     apt-get update && \
 	apt-get install -y \
+	nodejs \
+	yarn \
         php7.0-cli \ 
         php-xdebug \
         php-xml \
