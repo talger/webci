@@ -21,6 +21,7 @@ RUN apt-get update && \
         php-xdebug \
         php-xml \
         php7.0-mbstring \
+	php7.0-mysql \
         php7.0-curl && \
     apt-get autoclean -y && \
     apt-get autoremove -y && \
